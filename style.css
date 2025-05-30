@@ -180,12 +180,14 @@ header h1 {
 
 .services-grid {
     display: flex;
-    flex-wrap: nowrap; 
-    overflow-x: auto; 
-    justify-content: center; 
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start; /* Zmieniamy na flex-start dla mobile */
     gap: 20px;
-    padding: 20px 0;
-    -webkit-overflow-scrolling: touch; 
+    padding: 20px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    width: 100%;
 }
 
 .service-card {
@@ -220,6 +222,17 @@ header h1 {
 .service-card p {
     color: #7f8c8d;
     font-size: 0.9rem;
+}
+@media (min-width: 1024px) {
+    .services-grid {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+    .service-card {
+        flex: 1 1 200px;
+        max-width: calc(20% - 20px);
+    }
 }
 
 /* Gallery Styles */
